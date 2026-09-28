@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexora 奈科萨科技</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: #F7F8FA;
+    color: #333;
+    line-height: 1.6;
+  }
+  header {
+    background: #fff;
+    border-bottom: 1px solid #E5E7EB;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #1A73E8;
+  }
+  nav a {
+    margin-left: 24px;
+    color: #555;
+    text-decoration: none;
+    font-size: 15px;
+  }
+  nav a:hover { color: #1A73E8; }
+  .hero {
+    text-align: center;
+    padding: 80px 20px 60px;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F7F8FA 100%);
+  }
+  .hero h1 {
+    font-size: 48px;
+    color: #111;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 18px;
+    color: #666;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .products {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .section-title {
+    font-size: 26px;
+    color: #111;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  .card h3 {
+    font-size: 24px;
+    color: #111;
+    margin-bottom: 10px;
+  }
+  .card .subtitle {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  .card .features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .tag {
+    background: #EEF4FF;
+    color: #1A73E8;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+  }
+  .download-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  select {
+    padding: 10px 16px;
+    font-size: 15px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+  }
+  .btn {
+    background: #1A73E8;
+    color: #fff;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn:hover { background: #1558C0; }
+  .btn.secondary {
+    background: #fff;
+    color: #1A73E8;
+    border: 1px solid #1A73E8;
+  }
+  .btn.secondary:hover { background: #EEF4FF; }
+  footer {
+    background: #fff;
+    border-top: 1px solid #E5E7EB;
+    padding: 40px;
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+  }
+  footer a { color: #1A73E8; text-decoration: none; }
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 32px; }
+    header { padding: 12px 20px; }
+    nav a { margin-left: 12px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Nexora 奈科萨</div>
+  <nav>
+    <a href=" ">产品</a >
+    <a href="#about">关于</a >
+    <a href="#contact">联系方式</a >
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Nexora 奈科萨</h1>
+  <p>做长期、稳定、属于每一个人的软件。<br>纯本地，断网可用，隐私安全。</p >
+</section>
+
+<section class="products" id="products">
+  <h2 class="section-title">我们的产品</h2>
+
+  <!-- 产品卡片：CashGuard 钱盾 -->
+  <div class="card">
+    <h3>CashGuard 钱盾</h3>
+    <p class="subtitle">本地现金流 + 资产负债管家。零订阅、纯本地、断网可用。</p >
+
+    <div class="features">
+      <span class="tag">记账</span>
+      <span class="tag">资产负债表</span>
+      <span class="tag">回收站</span>
+      <span class="tag">曲线图</span>
+      <span class="tag">导出 CSV</span>
+      <span class="tag">数据本地加密</span>
+    </div>
+
+    <div class="download-row">
+      <label for="version">选择版本：</label>
+      <select id="version">
+        <option value="1.1.0">1.1.0（最新）</option>
+        <option value="1.0.0">1.0.0</option>
+      </select>
+
+      <a class="btn" id="downloadBtn" href="#" target="_blank">下载</a >
+      <a class="btn secondary" href="#install">安装说明</a >
+    </div>
+  </div>
+
+  <!-- 以后加新产品，复制上面这段 .card 改内容 -->
+
+</section>
+
+<section class="products" id="about">
+  <h2 class="section-title">关于 Nexora</h2>
+  <p style="text-align:center; max-width:700px; margin:0 auto; color:#666;">
+    Nexora（奈科萨科技）致力于打造长期、稳定、纯本地的软件产品。
+    我们相信，好的工具应该属于每一个人，而不是按月订阅的负担。
+  </p >
+</section>
+
+<section class="products" id="install">
+  <h2 class="section-title">安装说明</h2>
+  <div class="card">
+    <p>1. 下载 <strong>CashGuard_Setup.exe</strong>。</p >
+    <p>2. 双击安装，一路点“下一步”。</p >
+    <p>3. 安装时勾选“创建桌面快捷方式”。</p >
+    <p>4. 安装完成后，双击桌面图标即可使用。</p >
+    <p>5. 数据保存在 <code>C:\Users\你的用户名\.cashguard\cashguard.db</code>，请定期备份。</p >
+    <p style="margin-top:12px; color:#888;">当前仅支持 Windows 10 / 11。</p >
+  </div>
+</section>
+
+<footer id="contact">
+  <p>联系方式：<a href="mailto:sf1633@qq.com">sf1633@qq.com</a ></p >
+  <p style="margin-top:8px;">© 2026 Nexora 奈科萨科技 · All rights reserved.</p >
+</footer>
+
+<script>
+  // 版本和下载链接的对应表
+  // 你以后有新版本，只改这里就行
+  const downloadLinks = {
+    "1.0.0": "#",
+    "1.1.0": "#"
+  };
+
+  const versionSelect = document.getElementById("version");
+  const downloadBtn = document.getElementById("downloadBtn");
+
+  function updateDownloadLink() {
+    const v = versionSelect.value;
+    downloadBtn.href = downloadLinks[v] || "#";
+  }
+
+  versionSelect.addEventListener("change", updateDownloadLink);
+  updateDownloadLink();
+</script>
+
+</body>
+</html>
