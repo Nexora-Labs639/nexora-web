@@ -5,16 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nexora 奈科萨</title>
 <style>
+  :root {
+    --bg: #E8EBEF;
+    --card: #E8EBEF;
+    --text: #2D3748;
+    --text-dim: #6B7280;
+    --primary: #1A73E8;
+    --primary-soft: #EEF4FF;
+    --shadow-light: #FFFFFF;
+    --shadow-dark: #B8BFC9;
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
   body {
     font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
-    background: #F7F8FA;
-    color: #333;
+    background: var(--bg);
+    color: var(--text);
     line-height: 1.6;
+    min-height: 100vh;
   }
+
+  .neu-raised {
+    background: var(--bg);
+    box-shadow:
+      6px 6px 12px var(--shadow-dark),
+      -6px -6px 12px var(--shadow-light);
+  }
+  .neu-inset {
+    background: var(--bg);
+    box-shadow:
+      inset 3px 3px 6px var(--shadow-dark),
+      inset -3px -3px 6px var(--shadow-light);
+  }
+
   header {
-    background: #fff;
-    border-bottom: 1px solid #E5E7EB;
     padding: 16px 40px;
     display: flex;
     justify-content: space-between;
@@ -22,136 +46,239 @@
     position: sticky;
     top: 0;
     z-index: 100;
+    background: var(--bg);
+    box-shadow: 0 4px 12px rgba(184,191,201,0.4);
   }
   .logo {
     font-size: 22px;
     font-weight: bold;
-    color: #1A73E8;
+    color: var(--primary);
   }
   nav a {
-    margin-left: 24px;
-    color: #555;
+    margin-left: 20px;
+    color: var(--text-dim);
     text-decoration: none;
     font-size: 15px;
+    padding: 8px 14px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
   }
-  nav a:hover { color: #1A73E8; }
-  .hero {
-    text-align: center;
-    padding: 80px 20px 60px;
-    background: linear-gradient(180deg, #FFFFFF 0%, #F7F8FA 100%);
+  nav a:hover {
+    color: var(--primary);
+    box-shadow:
+      3px 3px 6px var(--shadow-dark),
+      -3px -3px 6px var(--shadow-light);
   }
-  .hero h1 {
-    font-size: 48px;
-    color: #111;
-    margin-bottom: 16px;
-  }
-  .hero p {
-    font-size: 18px;
-    color: #666;
-    max-width: 640px;
-    margin: 0 auto;
-  }
-  .products {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px 20px 20px;
-  }
-  .section-title {
-    font-size: 26px;
-    color: #111;
-    margin-bottom: 30px;
-    text-align: center;
-  }
-  .card {
-    background: #fff;
-    border-radius: 16px;
-    padding: 32px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    margin-bottom: 24px;
-  }
-  .card h3 {
-    font-size: 24px;
-    color: #111;
-    margin-bottom: 10px;
-  }
-  .card .subtitle {
-    font-size: 15px;
-    color: #666;
-    margin-bottom: 20px;
-  }
-  .card .features {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 24px;
-  }
-  .tag {
-    background: #EEF4FF;
-    color: #1A73E8;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 13px;
-  }
-  .download-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  select {
-    padding: 10px 16px;
-    font-size: 15px;
-    border: 1px solid #D1D5DB;
-    border-radius: 8px;
-    background: #fff;
-    cursor: pointer;
-  }
-  .btn {
-    background: #1A73E8;
-    color: #fff;
-    padding: 10px 24px;
+ .hero {
+  text-align: center;
+  padding: 80px 20px 60px;
+}
+.hero h1 {
+  font-size: 46px;
+  color: var(--text);
+  margin-bottom: 14px;
+  letter-spacing: 2px;
+}
+.hero p {
+  font-size: 17px;
+  color: var(--text-dim);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.products {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 20px;
+}
+.section-title {
+  font-size: 22px;
+  color: var(--text-dim);
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 400;
+}
+
+.product-bar {
+  background: var(--bg);
+  border-radius: 22px;
+  padding: 22px 26px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow:
+    8px 8px 16px var(--shadow-dark),
+    -8px -8px 16px var(--shadow-light);
+  transition: all 0.2s ease;
+}
+.product-bar:hover {
+  box-shadow:
+    4px 4px 10px var(--shadow-dark),
+    -4px -4px 10px var(--shadow-light);
+  transform: translateY(-1px);
+}
+.product-info {
+  flex: 1;
+  min-width: 0;
+}
+.product-info h3 {
+  font-size: 18px;
+  color: var(--text);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.product-info .subtitle {
+  font-size: 13px;
+  color: var(--text-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.product-info .features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.tag {
+  background: var(--bg);
+  color: var(--primary);
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 11px;
+  box-shadow:
+    2px 2px 4px var(--shadow-dark),
+    -2px -2px 4px var(--shadow-light);
+}
+.product-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+   .btn {
+    background: var(--bg);
+    color: var(--primary);
+    padding: 12px 22px;
     border: none;
-    border-radius: 8px;
-    font-size: 15px;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow:
+      6px 6px 12px var(--shadow-dark),
+      -6px -6px 12px var(--shadow-light);
+    transition: all 0.12s ease;
   }
-  .btn:hover { background: #1558C0; }
-  .btn.secondary {
-    background: #fff;
-    color: #1A73E8;
-    border: 1px solid #1A73E8;
+  .btn:hover {
+    box-shadow:
+      3px 3px 6px var(--shadow-dark),
+      -3px -3px 6px var(--shadow-light);
+    transform: translateY(1px);
   }
-  .btn.secondary:hover { background: #EEF4FF; }
-  footer {
-    background: #fff;
-    border-top: 1px solid #E5E7EB;
-    padding: 40px;
-    text-align: center;
-    color: #888;
+  .btn:active {
+    box-shadow:
+      inset 4px 4px 8px var(--shadow-dark),
+      inset -4px -4px 8px var(--shadow-light);
+    transform: translateY(2px);
+  }
+  .btn.download {
+    color: var(--primary);
+    font-weight: 700;
+  }
+  .btn.install {
+    color: #6B7280;
+    font-weight: 600;
+  }
+
+  .details {
+    display: none;
+    margin-top: 16px;
+    padding: 18px 20px;
+    border-radius: 16px;
+    background: var(--bg);
+    box-shadow:
+      inset 4px 4px 8px var(--shadow-dark),
+      inset -4px -4px 8px var(--shadow-light);
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+  .details.open { display: block; }
+  .details h4 {
+    color: var(--text);
     font-size: 14px;
+    margin-bottom: 8px;
+    margin-top: 12px;
   }
-  footer a { color: #1A73E8; text-decoration: none; }
+  .details h4:first-child { margin-top: 0; }
+  .details ol, .details ul { margin-left: 20px; }
+  .details code {
+    background: rgba(184,191,201,0.2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 12px;
+    color: #1A73E8;
+  }
+
+  .wall-wrap { text-align: center; padding: 20px 0 40px; }
   .wall-link {
     display: inline-block;
-    margin-top: 30px;
-    font-size: 16px;
-    color: #1A73E8;
+    font-size: 15px;
+    color: var(--primary);
     text-decoration: underline;
     text-underline-offset: 6px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
   }
-  .wall-link:hover { color: #1558C0; }
+  .wall-link:hover {
+    box-shadow:
+      4px 4px 8px var(--shadow-dark),
+      -4px -4px 8px var(--shadow-light);
+    text-decoration: none;
+  }
+
+  .about {
+    max-width: 700px;
+    margin: 20px auto 40px;
+    padding: 0 20px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 14px;
+  }
+
+  footer {
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 13px;
+    margin-top: 20px;
+    box-shadow: inset 0 6px 12px rgba(184,191,201,0.3);
+  }
+  footer a { color: var(--primary); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
   @media (max-width: 600px) {
-    .hero h1 { font-size: 32px; }
-    header { padding: 12px 20px; }
-    nav a { margin-left: 12px; font-size: 13px; }
+    .hero h1 { font-size: 30px; letter-spacing: 1px; }
+    header { padding: 12px 18px; }
+    nav a { margin-left: 4px; font-size: 13px; padding: 6px 10px; }
+    .product-bar { flex-direction: column; align-items: flex-start; padding: 20px; }
+    .product-actions { width: 100%; }
+    .btn { flex: 1; justify-content: center; }
   }
 </style>
 </head>
 <body>
-
-<header>
+ <header>
   <div class="logo">Nexora 奈科萨</div>
   <nav>
     <a href=" ">产品</a >
@@ -168,39 +295,102 @@
 <section class="products" id="products">
   <h2 class="section-title">我们的产品</h2>
 
-  <div class="card">
-    <h3>CashGuard 钱盾</h3>
-    <p class="subtitle">本地现金流 + 资产管家 零订阅、纯本地、断网可用</p >
-
-    <div class="features">
-      <span class="tag">记账</span>
-      <span class="tag">资产管家</span>
-      <span class="tag">回收站</span>
-      <span class="tag">曲线图</span>
-      <span class="tag">导出 CSV</span>
+  <!-- VotumSecuris -->
+  <div class="product-bar">
+    <div class="product-info">
+      <h3>VotumSecuris</h3>
+      <p class="subtitle">Agent 时代的安全内核 · 本地优先、开箱即用、安全可控</p >
+      <div class="features">
+        <span class="tag">策略引擎</span>
+        <span class="tag">审计日志</span>
+        <span class="tag">Saga 回滚</span>
+        <span class="tag">通用 RAG</span>
+        <span class="tag">Agent 身份</span>
+      </div>
     </div>
-
-    <div class="download-row">
-      <label for="version">选择版本：</label>
-      <select id="version">
-        <option value="1.1.0">1.1.0（最新）</option>
-      </select>
-
-      <a class="btn" id="downloadBtn" href="#" target="_blank">下载</a >
+    <div class="product-actions">
+      <a class="btn download" href="https://github.com/Nexora-Labs639/-votumsecuris/releases/download/V1.0.0/VotumSecuris.exe" target="_blank">↓ 下载</a >
+      <button class="btn install" onclick="toggleDetails('votum-details', this)">安装说明</button>
     </div>
   </div>
-</section>
+  <div class="details" id="votum-details">
+    <h4>📥 安装步骤</h4>
+    <ol>
+      <li>下载 <code>VotumSecuris.exe</code></li>
+      <li>双击运行（Windows 10 / 11）</li>
+      <li>首次运行需先安装 <a href="https://ollama.com" target="_blank" style="color:#1A73E8;">Ollama</a ></li>
+      <li>拉取本地模型：<code>ollama pull qwen2.5:7b</code></li>
+      <li>拉取 embedding 模型：<code>ollama pull nomic-embed-text</code></li>
+      <li>启动 UI：<code>cd ui && flutter run -d windows</code></li>
+    </ol>
+    <h4>🚀 使用说明</h4>
+    <ul>
+      <li><b>删除测试</b>：输入文件路径 → 点删除 → 高风险操作弹审批窗</li>
+      <li><b>知识库管理</b>：把 .txt / .md 放进 <code>knowledge/</code> → 点扫描</li>
+      <li><b>RAG 检索</b>：输入问题 → 语义检索最相关的 3 段内容</li>
+      <li><b>局域网同步</b>：填对方 IP → 一键同步记忆</li>
+      <li><b>推理控制</b>：4 个预设（fast / balanced / deep / creative）</li>
+    </ul>
+    <h4>⚙️ 系统要求</h4>
+    <ul>
+      <li>Windows 10 / 11（64 位）</li>
+      <li>Python 3.12+</li>
+      <li>Ollama（本地模型运行时）</li>
+      <li>约 10 GB 硬盘空间（含模型）</li>
+    </ul>
+  </div>
 
-<section class="products" id="about">
+  <!-- CashGuard -->
+  <div class="product-bar">
+    <div class="product-info">
+      <h3>CashGuard 钱盾</h3>
+      <p class="subtitle">本地现金流 + 资产管家 · 零订阅、纯本地、断网可用</p >
+      <div class="features">
+        <span class="tag">记账</span>
+        <span class="tag">资产管家</span>
+        <span class="tag">回收站</span>
+        <span class="tag">曲线图</span>
+        <span class="tag">导出 CSV</span>
+      </div>
+    </div>
+    <div class="product-actions">
+      <a class="btn download" id="downloadBtn" href="#" target="_blank">↓ 下载</a >
+      <button class="btn install" onclick="toggleDetails('cash-details', this)">安装说明</button>
+    </div>
+  </div>
+  <div class="details" id="cash-details">
+    <h4>📥 安装步骤</h4>
+    <ol>
+      <li>下载 <code>CashGuard_1.1.0.zip</code></li>
+      <li>解压到任意文件夹</li>
+      <li>双击 <code>CashGuard.exe</code> 运行</li>
+      <li>首次运行自动创建本地数据库</li>
+    </ol>
+    <h4>🚀 使用说明</h4>
+    <ul>
+      <li><b>记账</b>：收入 / 支出，支持分类</li>
+      <li><b>资产管家</b>：资产负债表、净资产（正绿负红）</li>
+      <li><b>回收站</b>：删除进回收站，可恢复 / 彻底删除</li>
+      <li><b>曲线图</b>：当天按笔、最近 7 天、30 天、12 个月</li>
+      <li><b>导出</b>：CSV 导出，带水印</li>
+    </ul>
+    <h4>⚙️ 系统要求</h4>
+    <ul>
+      <li>Windows 10 / 11（64 位）</li>
+      <li>零依赖，双击即用</li>
+    </ul>
+  </div>
+</section>
+<section class="about" id="about">
   <h2 class="section-title">关于 Nexora</h2>
-<p style="text-align:center; max-width:700px; margin:0 auto; color:#666;">
-  Nexora（奈科萨）致力于打造长期、稳定的产品，
-  好的工具应该属于每一个人
-</p >
+  <p>
+    Nexora（奈科萨）致力于打造长期、稳定的产品，
+    好的工具应该属于每一个人
+  </p >
 </section>
 
-<div style="text-align:center;">
-  <a class="wall-link" href="wall.html">走进 Nexora →</a >
+<div class="wall-wrap">
+  <a class="wall-link" href=" ">走进 Nexora →</a >
 </div>
 
 <footer id="contact">
@@ -213,16 +403,14 @@
     "1.1.0": "https://github.com/Nexora-Labs639/nexora-Web/releases/download/V1.1.0/CashGuard_1.1.0.zip"
   };
 
-  const versionSelect = document.getElementById("version");
   const downloadBtn = document.getElementById("downloadBtn");
+  downloadBtn.href = downloadLinks["1.1.0"] || "#";
 
-  function updateDownloadLink() {
-    const v = versionSelect.value;
-    downloadBtn.href = downloadLinks[v] || "#";
+  function toggleDetails(id, btn) {
+    const el = document.getElementById(id);
+    const isOpen = el.classList.toggle("open");
+    btn.textContent = isOpen ? "收起" : "安装说明";
   }
-
-  versionSelect.addEventListener("change", updateDownloadLink);
-  updateDownloadLink();
 </script>
 
 </body>
